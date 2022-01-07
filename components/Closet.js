@@ -1,9 +1,8 @@
 import { ImageList, ImageListItem, itemData } from "@mui/material";
 import React, { Component } from "react";
 import ClosetItem from "./ClosetItem";
-import  SearchBarCloset from "./SearchBarCloset"
-import Box from '@mui/material/Box';
-
+import SearchBarCloset from "./SearchBarCloset";
+import Box from "@mui/material/Box";
 
 let imgArray = [
   { src: "/clothes/IMG_0840.jpeg", name: "shirt" },
@@ -30,29 +29,25 @@ let imgArray = [
   { src: "/clothes/IMG_1106.jpeg", name: "shirt" },
   { src: "/clothes/IMG_1107.jpeg", name: "shirt" },
   { src: "/clothes/IMG_1109.jpeg", name: "shirt" },
-    { src: "/clothes/IMG_1110.jpeg", name: "shirt" },
-
-
+  { src: "/clothes/IMG_1110.jpeg", name: "shirt" },
 ];
 
 export default function Closet() {
   return (
     <div className="closet-container">
       My Closet
-      <div><SearchBarCloset/></div>
       <div>
-      <Box sx={{ width: 500, height: 650, overflowY: 'scroll' }} >
-        <ImageList
-          variant="masonry"
-          cols={4}
-          gap={8}
-        >
-          {imgArray.map((item) => (
-            <ImageListItem key={item.src}>
-              <ClosetItem src={item.src} name={item.name} />
-            </ImageListItem>
-          ))}
-        </ImageList>
+        <SearchBarCloset />
+      </div>
+      <div>
+        <Box sx={{ width: "100%", height: "75vh", overflowY: "scroll" }}>
+          <ImageList variant="masonry" cols={4} gap={8}>
+            {imgArray.map((item) => (
+              <ImageListItem key={item.src}>
+                <ClosetItem src={item.src} name={item.name} />
+              </ImageListItem>
+            ))}
+          </ImageList>
         </Box>
       </div>
     </div>

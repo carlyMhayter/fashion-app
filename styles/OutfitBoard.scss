@@ -3,5 +3,27 @@
 .outfit-board-container {
     border: 2px blue solid;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 45%;
+    min-height: 100%;
+}
+
+.outfit-board{
+    background-color: $dkGrey;
+    min-height: 100%;
+    width: 100%;
+}
+
+@media only screen and (max-width: 850px) {
+    .outfit-board-container  {
+       width:100%;
+       height: 100%;}
+
+.outfit-board{
+    background-color: $dkGrey;
+    max-width: 350px;
+    min-height:95%;
+}
 }
