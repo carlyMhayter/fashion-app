@@ -1,0 +1,20 @@
+@import "./variables.scss";
+
+.main-container {
+width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        border: 2px gold solid;
+
+}
+
+.board-containers{
+    border: 2px orange solid;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    max-width:85%;
+
+}

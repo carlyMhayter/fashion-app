@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import "./NavBar.scss";
+@import "./PageStyling.scss";
+@import "./Closet.scss";
+@import "./ClosetItems.scss";
+@import "./OutfitBoard.scss";
+
+@import "./variables.scss";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: $vvLtGrey;
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
