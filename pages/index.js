@@ -23,9 +23,9 @@ export default function Home() {
       </Head>
 
       <main className="main-container">
-      <div className="board-containers">
-          <OutfitBoard/>
-          <Closet /> 
+          <div className="board-containers">
+            <OutfitBoard/>
+            <Closet /> 
           </div>
       </main>
    </div>

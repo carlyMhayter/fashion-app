@@ -7,8 +7,9 @@ import Menu from "@mui/material/Menu";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import CardContent from '@mui/material/CardContent';
-import Draggable, {DraggableCore} from 'react-draggable'; 
+import CardContent from "@mui/material/CardContent";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function ClosetItem(props) {
   let { name, src } = props;
@@ -23,28 +24,56 @@ export default function ClosetItem(props) {
     setAnchorEl(null);
   };
 
-//   eventLogger = (e: MouseEvent, data: Object) => {
-//     console.log('Event: ', e);
-//     console.log('Data: ', data);
-//   };
-
   return (
-    //   <Draggable
-    //     axis="x"
-    //     handle=".handle"
-    //     defaultPosition={{x: 0, y: 0}}
-    //     position={null}
-    //     grid={[25, 25]}
-    //     scale={1}
-    //     onStart={this.handleStart}
-    //     onDrag={this.handleDrag}
-    //     onStop={this.handleStop}>>
+    <Card className="card-parent">
+      <CardMedia component="img" image={src} />
 
-    <Card >
-      <CardMedia  component="img" image={src} />
-      <CardContent className="drag-me-text">Drag Me</CardContent>
+      <div className="hover-container">
+        <div className="hover-add-clothes head-adder">
+          <IconButton
+            className="hover-add-clothes-icon"
+            aria-label="Add to head section"
+          >
+            <Tooltip title="Add to head section">
+              <AddCircleIcon fontSize="medium" />
+            </Tooltip>
+          </IconButton>
+        </div>
+        <div className="hover-add-clothes torso-adder">
+          <IconButton
+            className="hover-add-clothes-icon"
+            aria-label="Add to head section"
+          >
+            <Tooltip title="Add to torso section">
+              <AddCircleIcon fontSize="medium" />
+            </Tooltip>
+          </IconButton>
+        </div>
+        <div className="hover-add-clothes leg-adder">
+          <IconButton
+            className="hover-add-clothes-icon"
+            aria-label="Add to head section"
+          >
+            <Tooltip title="Add to leg section">
+              <AddCircleIcon fontSize="medium" />
+            </Tooltip>
+          </IconButton>
+        </div>
+        <div className="hover-add-clothes feet-adder">
+          <IconButton
+            className="hover-add-clothes-icon"
+            aria-label="Add to head section"
+          >
+            <Tooltip title="Add to feet section">
+              <AddCircleIcon fontSize="medium" />
+            </Tooltip>
+          </IconButton>
+        </div>
+      </div>
+
+      <CardContent className="drag-me-text"></CardContent>
       <IconButton
-        style ={{fontSize: 30}}
+        style={{ fontSize: 30 }}
         aria-label="menu"
         aria-controls="menu-appbar"
         aria-haspopup="true"
@@ -52,7 +81,9 @@ export default function ClosetItem(props) {
         onClick={handleMenu}
         color="inherit"
       >
-        <MoreHorizIcon fontSize="medium" />
+        <Tooltip title="More options">
+          <MoreHorizIcon fontSize="medium" />
+        </Tooltip>
       </IconButton>
       <Menu
         id="menu-dot"
@@ -75,6 +106,5 @@ export default function ClosetItem(props) {
         <MenuItem onClick={handleClose}>Friend</MenuItem>
       </Menu>
     </Card>
-    // </Draggable>
   );
 }

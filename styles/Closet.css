@@ -1,0 +1,1 @@
+.closet-container{border:2px red solid;display:flex;flex-direction:column;width:45%;height:100%;padding:0px 10px}@media only screen and (max-width: 1000px){.closet-container{background-color:red;display:none}}
