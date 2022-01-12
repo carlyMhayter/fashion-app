@@ -88,7 +88,7 @@ export default function MenuAppBar() {
               onClose={handleClose}
             >
               {Links.map((link) => (
-                <MenuItem onClick={handleClose}>
+                <MenuItem key={link.linkName} onClick={handleClose}>
                   <Link href={link.linkLoc}>
                     <a> {link.linkName} </a>
                   </Link>

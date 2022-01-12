@@ -1,19 +1,17 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Router, useRouter } from "next/router";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { Typography } from "@mui/material";
-import DeleteOutlined from "@mui/icons-material/DeleteOutlined";
 import Closet from "../components/Closet";
 import OutfitBoard from "../components/OutfitBoard";
-import Container from '@mui/material/Container';
-
-
+import { clothes, sections, categories } from "../utils/data";
+import { ACTIONS, reducer } from "../utils/reducer";
+import { useReducer } from "react";
 
 export default function Home() {
+  const [data, dispatch] = useReducer(reducer, clothes);
+
   return (
     <div>
       <Head>
@@ -23,11 +21,11 @@ export default function Home() {
       </Head>
 
       <main className="main-container">
-          <div className="board-containers">
-            <OutfitBoard/>
-            <Closet /> 
-          </div>
+        <div className="board-containers">
+          <OutfitBoard clothes={data} dispatch={dispatch} sections={sections} />
+          <Closet clothes={data} categories={categories} dispatch={dispatch} />
+        </div>
       </main>
-   </div>
+    </div>
   );
 }

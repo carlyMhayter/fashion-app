@@ -9,10 +9,12 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import Tooltip from "@mui/material/Tooltip";
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+import { styled } from "@mui/material/styles";
+import { ACTIONS, reducer } from "../utils/reducer";
 
 export default function ClosetItem(props) {
-  let { name, src } = props;
+  const { dispatch, src, tags, id } = props;
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -24,6 +26,21 @@ export default function ClosetItem(props) {
     setAnchorEl(null);
   };
 
+  const handlePress = () => {
+    dispatch({ type: ACTIONS.CONSOLE_LOG });
+  };
+
+  const LightTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: theme.palette.common.white,
+      color: "rgba(0, 0, 0, 0.87)",
+      boxShadow: theme.shadows[1],
+      fontSize: 11,
+    },
+  }));
+
   return (
     <Card className="card-parent">
       <CardMedia component="img" image={src} />
@@ -33,10 +50,11 @@ export default function ClosetItem(props) {
           <IconButton
             className="hover-add-clothes-icon"
             aria-label="Add to head section"
+            onClick={handlePress}
           >
-            <Tooltip title="Add to head section">
+            <LightTooltip title="Add to head section">
               <AddCircleIcon fontSize="medium" />
-            </Tooltip>
+            </LightTooltip>
           </IconButton>
         </div>
         <div className="hover-add-clothes torso-adder">
@@ -44,9 +62,9 @@ export default function ClosetItem(props) {
             className="hover-add-clothes-icon"
             aria-label="Add to head section"
           >
-            <Tooltip title="Add to torso section">
+            <LightTooltip title="Add to torso section">
               <AddCircleIcon fontSize="medium" />
-            </Tooltip>
+            </LightTooltip>
           </IconButton>
         </div>
         <div className="hover-add-clothes leg-adder">
@@ -54,9 +72,9 @@ export default function ClosetItem(props) {
             className="hover-add-clothes-icon"
             aria-label="Add to head section"
           >
-            <Tooltip title="Add to leg section">
+            <LightTooltip title="Add to leg section">
               <AddCircleIcon fontSize="medium" />
-            </Tooltip>
+            </LightTooltip>
           </IconButton>
         </div>
         <div className="hover-add-clothes feet-adder">
@@ -64,9 +82,9 @@ export default function ClosetItem(props) {
             className="hover-add-clothes-icon"
             aria-label="Add to head section"
           >
-            <Tooltip title="Add to feet section">
+            <LightTooltip title="Add to feet section">
               <AddCircleIcon fontSize="medium" />
-            </Tooltip>
+            </LightTooltip>
           </IconButton>
         </div>
       </div>

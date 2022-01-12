@@ -22,6 +22,7 @@ $window-width: 100vw;
 
 .outfit-board{
     background-color: $ltGrey;
+    // border: 2px red solid;
     height: 60vw;
     display: flex;
     align-items: center;
@@ -29,11 +30,20 @@ $window-width: 100vw;
     width: calc(60vw * $ratio);
     max-width: 500px;
     max-height: calc(500px/$ratio);
-    position: relative;
 }
 .outfit-board-inner-section{
+    // border: 2px gold solid;
     width: 80%;   
     border-bottom: 1px solid rgba($dkGrey, .4);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.add-button-outfit-board {
+    opacity: 0%;
+    color: $dkGrey;
 }
 
 .head-section{
@@ -50,7 +60,9 @@ $window-width: 100vw;
 
 .foot-section {
     height: 15%;
+    border-bottom: none;
 }
+
 
 @media only screen and (max-width: 1000px) {
     .outfit-board-container  {
@@ -67,5 +79,12 @@ $window-width: 100vw;
         width: calc(80vw * $ratio);
         height: 80vw;
         
+    }
+    .add-button-outfit-board {
+        opacity: 100%;
+    }
+
+    .desktop-tooltip {
+        // display: none;
     }
 }
