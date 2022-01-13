@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-export const clothes = [
+const clothes = [
   { src: "/clothes/IMG_0840.jpeg", tags: ["jumpsuit", "spring"] },
   {
     src: "/clothes/IMG_0841.jpeg",
@@ -58,6 +58,19 @@ export const clothes = [
 ].map((item) => {
   return { ...item, id: uuidv4() };
 });
+
+const itemsOnBoard = {
+  torso: [],
+  head: [],
+  leg: [],
+  feet: [],
+  fullBody: [],
+};
+
+export const intialData = {
+  clothes,
+  itemsOnBoard,
+};
 
 export const sections = {
   head: [clothes[1].id, clothes[2].id],

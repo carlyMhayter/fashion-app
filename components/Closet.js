@@ -6,12 +6,12 @@ import Box from "@mui/material/Box";
 import { ACTIONS, reducer } from "../utils/reducer";
 
 export default function Closet(props) {
-  let { clothes, categories, dispatch } = props;
+  let { data, categories, dispatch } = props;
   return (
     <div className="closet-container">
       My Closet
       <div>
-        <SearchBarCloset clothes={clothes} dispatch={dispatch} />
+        <SearchBarCloset data={data} dispatch={dispatch} />
       </div>
       <div>
         <Box
@@ -26,9 +26,10 @@ export default function Closet(props) {
           }}
         >
           <ImageList variant="masonry" cols={4} gap={8}>
-            {clothes.map((cloth) => (
+            {data.map((cloth) => (
               <ImageListItem key={cloth.id}>
                 <ClosetItem
+                  data={data}
                   dispatch={dispatch}
                   src={cloth.src}
                   tags={cloth.tags}

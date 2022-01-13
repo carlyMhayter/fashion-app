@@ -42,23 +42,23 @@ $window-width: 100vw;
   
 }
 .add-button-outfit-board {
-    opacity: 0%;
+    opacity: 100%;
     color: $dkGrey;
 }
 
-.head-section{
+.Head-section{
     height: 15%;
 }
 
-.torso-section {
+.Torso-section {
     height: 30%;
 }
 
-.leg-section {
+.Leg-section {
     height: 40%;
 }
 
-.foot-section {
+.Foot-section {
     height: 15%;
     border-bottom: none;
 }

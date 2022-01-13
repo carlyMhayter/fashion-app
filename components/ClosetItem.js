@@ -14,8 +14,8 @@ import { styled } from "@mui/material/styles";
 import { ACTIONS, reducer } from "../utils/reducer";
 
 export default function ClosetItem(props) {
-  const { dispatch, src, tags, id } = props;
-
+  const { data, dispatch, src, tags, id } = props;
+  const sectionNames = ["head", "torso", "leg", "feet"];
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenu = (event) => {
@@ -28,6 +28,13 @@ export default function ClosetItem(props) {
 
   const handlePress = () => {
     dispatch({ type: ACTIONS.CONSOLE_LOG });
+  };
+
+  const handleAddButtonClick = (sectionName) => {
+    dispatch({
+      type: ACTIONS.ADD_TO_SECTION,
+      payload: { id, section: sectionName },
+    });
   };
 
   const LightTooltip = styled(({ className, ...props }) => (
@@ -46,11 +53,29 @@ export default function ClosetItem(props) {
       <CardMedia component="img" image={src} />
 
       <div className="hover-container">
-        <div className="hover-add-clothes head-adder">
+        {sectionNames.map((sectionName) => {
+          <div className={`hover-add-clothes ${sectionName}-adder`}>
+            {/* <IconButton
+              className="hover-add-clothes-icon"
+              aria-label={`Add to ${sectionName} section`}
+              onClick={() => {
+                handleAddButtonClick({ sectionName });
+              }}
+            >
+              <LightTooltip title={`Add to ${sectionName} section`}>
+                <AddCircleIcon fontSize="medium" />
+              </LightTooltip>
+            </IconButton> */}
+          </div>;
+        })}
+
+        {/* <div className="hover-add-clothes head-adder">
           <IconButton
             className="hover-add-clothes-icon"
             aria-label="Add to head section"
-            onClick={handlePress}
+            onClick={() => {
+              handleAddButtonClick("head");
+            }}
           >
             <LightTooltip title="Add to head section">
               <AddCircleIcon fontSize="medium" />
@@ -60,6 +85,9 @@ export default function ClosetItem(props) {
         <div className="hover-add-clothes torso-adder">
           <IconButton
             className="hover-add-clothes-icon"
+            onClick={() => {
+              handleAddButtonClick("head");
+            }}
             aria-label="Add to head section"
           >
             <LightTooltip title="Add to torso section">
@@ -70,6 +98,9 @@ export default function ClosetItem(props) {
         <div className="hover-add-clothes leg-adder">
           <IconButton
             className="hover-add-clothes-icon"
+            onClick={() => {
+              handleAddButtonClick("head");
+            }}
             aria-label="Add to head section"
           >
             <LightTooltip title="Add to leg section">
@@ -80,6 +111,9 @@ export default function ClosetItem(props) {
         <div className="hover-add-clothes feet-adder">
           <IconButton
             className="hover-add-clothes-icon"
+            onClick={() => {
+              handleAddButtonClick("head");
+            }}
             aria-label="Add to head section"
           >
             <LightTooltip title="Add to feet section">
@@ -87,6 +121,7 @@ export default function ClosetItem(props) {
             </LightTooltip>
           </IconButton>
         </div>
+       */}
       </div>
 
       <CardContent className="drag-me-text"></CardContent>

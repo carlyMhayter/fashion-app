@@ -5,13 +5,18 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Closet from "../components/Closet";
 import OutfitBoard from "../components/OutfitBoard";
-import { clothes, sections, categories } from "../utils/data";
-import { ACTIONS, reducer } from "../utils/reducer";
+import { sections, categories, intialData } from "../utils/data";
+import { ACTIONS, reducer, itemsOnBoard } from "../utils/reducer";
 import { useReducer } from "react";
+import { useEffect } from "react";
 
 export default function Home() {
-  const [data, dispatch] = useReducer(reducer, clothes);
+  const [data, dispatch] = useReducer(reducer, intialData);
+  // useEffect(() => {
+  //   dispatch({ type: ACTIONS.ADD_TO_SECTION, payload: data });
+  // }, []);
 
+  console.log(data);
   return (
     <div>
       <Head>
@@ -22,8 +27,18 @@ export default function Home() {
 
       <main className="main-container">
         <div className="board-containers">
-          <OutfitBoard clothes={data} dispatch={dispatch} sections={sections} />
-          <Closet clothes={data} categories={categories} dispatch={dispatch} />
+          <OutfitBoard
+            data={data.clothes}
+            dispatch={dispatch}
+            sections={sections}
+            itemsOnBoard={data.itemsOnBoard}
+          />
+          <Closet
+            data={data.clothes}
+            categories={categories}
+            dispatch={dispatch}
+            itemsOnBoard={data.itemsOnBoard}
+          />
         </div>
       </main>
     </div>
