@@ -21,9 +21,11 @@
   height: 98%;
   width: 30%;
   border-radius: 3px;
+  position: relative;
 
   &-short {
     border-radius: 3px;
+    position: relative;
 
     box-shadow: rgba(#000, .2) 2px 2px 2px;
     height: 40%;
@@ -35,5 +37,12 @@
   }
 
 
+}
+
+.outfit-board-card-options {
+   color: white;
+   position: absolute;
+   top:-2px;
+   left:-10px;
 }
 
