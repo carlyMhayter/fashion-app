@@ -1,11 +1,39 @@
 @import "./variables.scss";
 
-.outfit-board-card-container{
-    border: red 2px solid;
+.outfit-board-card-outer-container{
+        // border: blue 2px solid;
+        padding: 1px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items:center;
+
+}
+
+.outfit-board-card-inner-container{
+    border: $medGrey 1px solid;
+    box-shadow: rgba(#000, .2) 2px 2px 2px;
     background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; 
-//  height: 90%;
- width: 20%;
+  height: 98%;
+  width: 30%;
+  border-radius: 3px;
+
+  &-short {
+    border-radius: 3px;
+
+    box-shadow: rgba(#000, .2) 2px 2px 2px;
+    height: 40%;
+    width:30%;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; 
+    // border:  purple 2px solid;
+  }
+
 
 }
+

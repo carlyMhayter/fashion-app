@@ -8,9 +8,7 @@ import OutfitBoardCard from "./OutfitBoardCard";
 
 export default function OutfitBoard(props) {
   const { data, dispatch, sections, itemsOnBoard } = props;
-  function mySexyFunc() {
-    console.log("The func is real!!!");
-  }
+
   return (
     <div className="outfit-board-container">
       <div className="outfit-board">
@@ -34,7 +32,7 @@ export default function OutfitBoard(props) {
             )}
 
             {itemsOnBoard[section].length !== 0 && (
-              <div>
+              <div className="outfit-board-card-outer-container">
                 {itemsOnBoard[section].map((item) => (
                   <OutfitBoardCard key={item.id} {...{ item }} />
                 ))}
