@@ -1,0 +1,11 @@
+@import "./variables.scss";
+
+.outfit-board-card-container{
+    border: red 2px solid;
+    background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
+//  height: 90%;
+ width: 20%;
+
+}

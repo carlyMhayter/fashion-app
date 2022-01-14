@@ -4,32 +4,43 @@ import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 const sections = ["Head", "Torso", "Leg", "Foot"];
-import { ACTIONS, reducer, itemsOnBoard } from "../utils/reducer";
+import OutfitBoardCard from "./OutfitBoardCard";
 
 export default function OutfitBoard(props) {
-  const { data, dispatch } = props;
-  let sectionEmpty = false;
-
-
+  const { data, dispatch, sections, itemsOnBoard } = props;
+  function mySexyFunc() {
+    console.log("The func is real!!!");
+  }
   return (
     <div className="outfit-board-container">
       <div className="outfit-board">
         {sections.map((section) => (
-          <Tooltip
-            placement="bottom"
-            title={`${section} Section`}
-            className="desktop-tooltip"
-            arrow
+          <div
             key={section}
+            className={`outfit-board-inner-section ${section}-section`}
           >
-            <div className={`outfit-board-inner-section ${section}-section`}>
-              {sectionEmpty && (
+            {itemsOnBoard[section].length === 0 && (
+              <Tooltip
+                placement="bottom"
+                title={`${section} Section`}
+                className="desktop-tooltip"
+                arrow
+                key={section}
+              >
                 <IconButton aria-label="Add to section">
                   <AddCircleIcon className="add-button-outfit-board" />
                 </IconButton>
-              )}
-            </div>
-          </Tooltip>
+              </Tooltip>
+            )}
+
+            {itemsOnBoard[section].length !== 0 && (
+              <div>
+                {itemsOnBoard[section].map((item) => (
+                  <OutfitBoardCard key={item.id} {...{ item }} />
+                ))}
+              </div>
+            )}
+          </div>
         ))}
       </div>
       <div className="clothes-button-container">

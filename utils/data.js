@@ -64,7 +64,6 @@ const itemsOnBoard = {
   head: [],
   leg: [],
   feet: [],
-  fullBody: [],
 };
 
 export const intialData = {
@@ -72,11 +71,6 @@ export const intialData = {
   itemsOnBoard,
 };
 
-export const sections = {
-  head: [clothes[1].id, clothes[2].id],
-  torso: [clothes[7].id],
-  legs: [clothes[4].id],
-  feet: [clothes[10].id],
-};
+export const sections = ["head", "torso", "leg", "feet"];
 
 export const categories = ["bottoms", "tops", "dress", "jackets", "pants"];

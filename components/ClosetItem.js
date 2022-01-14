@@ -14,7 +14,9 @@ import { styled } from "@mui/material/styles";
 import { ACTIONS, reducer } from "../utils/reducer";
 
 export default function ClosetItem(props) {
-  const { data, dispatch, src, tags, id } = props;
+  const { data, dispatch, item } = props;
+  const { src, tags, id } = item;
+
   const sectionNames = ["head", "torso", "leg", "feet"];
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -33,7 +35,7 @@ export default function ClosetItem(props) {
   const handleAddButtonClick = (sectionName) => {
     dispatch({
       type: ACTIONS.ADD_TO_SECTION,
-      payload: { id, section: sectionName },
+      payload: { item, section: sectionName },
     });
   };
 
@@ -52,76 +54,26 @@ export default function ClosetItem(props) {
     <Card className="card-parent">
       <CardMedia component="img" image={src} />
 
+      {/* contains all the divs which have the hover button for each section */}
       <div className="hover-container">
-        {sectionNames.map((sectionName) => {
-          <div className={`hover-add-clothes ${sectionName}-adder`}>
-            {/* <IconButton
+        {sectionNames.map((sectionName) => (
+          <div
+            key={sectionName}
+            className={`hover-add-clothes ${sectionName}-adder`}
+          >
+            <IconButton
               className="hover-add-clothes-icon"
               aria-label={`Add to ${sectionName} section`}
               onClick={() => {
-                handleAddButtonClick({ sectionName });
+                handleAddButtonClick(sectionName);
               }}
             >
               <LightTooltip title={`Add to ${sectionName} section`}>
                 <AddCircleIcon fontSize="medium" />
               </LightTooltip>
-            </IconButton> */}
-          </div>;
-        })}
-
-        {/* <div className="hover-add-clothes head-adder">
-          <IconButton
-            className="hover-add-clothes-icon"
-            aria-label="Add to head section"
-            onClick={() => {
-              handleAddButtonClick("head");
-            }}
-          >
-            <LightTooltip title="Add to head section">
-              <AddCircleIcon fontSize="medium" />
-            </LightTooltip>
-          </IconButton>
-        </div>
-        <div className="hover-add-clothes torso-adder">
-          <IconButton
-            className="hover-add-clothes-icon"
-            onClick={() => {
-              handleAddButtonClick("head");
-            }}
-            aria-label="Add to head section"
-          >
-            <LightTooltip title="Add to torso section">
-              <AddCircleIcon fontSize="medium" />
-            </LightTooltip>
-          </IconButton>
-        </div>
-        <div className="hover-add-clothes leg-adder">
-          <IconButton
-            className="hover-add-clothes-icon"
-            onClick={() => {
-              handleAddButtonClick("head");
-            }}
-            aria-label="Add to head section"
-          >
-            <LightTooltip title="Add to leg section">
-              <AddCircleIcon fontSize="medium" />
-            </LightTooltip>
-          </IconButton>
-        </div>
-        <div className="hover-add-clothes feet-adder">
-          <IconButton
-            className="hover-add-clothes-icon"
-            onClick={() => {
-              handleAddButtonClick("head");
-            }}
-            aria-label="Add to head section"
-          >
-            <LightTooltip title="Add to feet section">
-              <AddCircleIcon fontSize="medium" />
-            </LightTooltip>
-          </IconButton>
-        </div>
-       */}
+            </IconButton>
+          </div>
+        ))}
       </div>
 
       <CardContent className="drag-me-text"></CardContent>

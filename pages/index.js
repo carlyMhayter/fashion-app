@@ -12,9 +12,6 @@ import { useEffect } from "react";
 
 export default function Home() {
   const [data, dispatch] = useReducer(reducer, intialData);
-  // useEffect(() => {
-  //   dispatch({ type: ACTIONS.ADD_TO_SECTION, payload: data });
-  // }, []);
 
   console.log(data);
   return (

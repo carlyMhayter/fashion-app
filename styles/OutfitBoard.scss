@@ -37,6 +37,7 @@ $window-width: 100vw;
     border-bottom: 1px solid rgba($dkGrey, .4);
     position: relative;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
   
@@ -46,19 +47,19 @@ $window-width: 100vw;
     color: $dkGrey;
 }
 
-.Head-section{
+.head-section{
     height: 15%;
 }
 
-.Torso-section {
+.torso-section {
     height: 30%;
 }
 
-.Leg-section {
+.leg-section {
     height: 40%;
 }
 
-.Foot-section {
+.feet-section {
     height: 15%;
     border-bottom: none;
 }
