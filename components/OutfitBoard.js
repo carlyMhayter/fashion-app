@@ -34,7 +34,13 @@ export default function OutfitBoard(props) {
             {itemsOnBoard[section].length !== 0 && (
               <div className="outfit-board-card-outer-container">
                 {itemsOnBoard[section].map((item) => (
-                  <OutfitBoardCard key={item.id} {...{ item }} />
+                  <OutfitBoardCard
+                    key={item.id}
+                    {...{ item }}
+                    section={section}
+                    data={data}
+                    dispatch={dispatch}
+                  />
                 ))}
               </div>
             )}

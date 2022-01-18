@@ -1,5 +1,4 @@
-import React from "react";
-import Image from "next";
+import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -12,13 +11,14 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 import { ACTIONS, reducer } from "../utils/reducer";
+import { sections } from "../utils/data";
 
 export default function ClosetItem(props) {
   const { data, dispatch, item } = props;
   const { src, tags, id } = item;
 
-  const sectionNames = ["head", "torso", "leg", "feet"];
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl2, setAnchorEl2] = useState(null);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -28,8 +28,12 @@ export default function ClosetItem(props) {
     setAnchorEl(null);
   };
 
-  const handlePress = () => {
-    dispatch({ type: ACTIONS.CONSOLE_LOG });
+  const handleMenu2 = (event) => {
+    setAnchorEl2(event.currentTarget);
+  };
+
+  const handleClose2 = () => {
+    setAnchorEl2(null);
   };
 
   const handleAddButtonClick = (sectionName) => {
@@ -54,29 +58,19 @@ export default function ClosetItem(props) {
     <Card className="card-parent">
       <CardMedia component="img" image={src} />
 
-      {/* contains all the divs which have the hover button for each section */}
       <div className="hover-container">
-        {sectionNames.map((sectionName) => (
-          <div
-            key={sectionName}
-            className={`hover-add-clothes ${sectionName}-adder`}
+        <div className="hover-add-clothes">
+          <IconButton
+            className="hover-add-clothes-icon"
+            aria-label={`Add to outfit board`}
+            onClick={handleMenu2}
           >
-            <IconButton
-              className="hover-add-clothes-icon"
-              aria-label={`Add to ${sectionName} section`}
-              onClick={() => {
-                handleAddButtonClick(sectionName);
-              }}
-            >
-              <LightTooltip title={`Add to ${sectionName} section`}>
-                <AddCircleIcon fontSize="medium" />
-              </LightTooltip>
-            </IconButton>
-          </div>
-        ))}
+            <LightTooltip title={`Add to outfit board`}>
+              <AddCircleIcon fontSize="medium" />
+            </LightTooltip>
+          </IconButton>
+        </div>
       </div>
-
-      <CardContent className="drag-me-text"></CardContent>
       <IconButton
         style={{ fontSize: 30 }}
         aria-label="menu"
@@ -95,20 +89,45 @@ export default function ClosetItem(props) {
         anchorEl={anchorEl}
         anchorOrigin={{
           vertical: "bottom",
-          horizontal: "right",
+          horizontal: "left",
         }}
         keepMounted
         transformOrigin={{
           vertical: "bottom",
-          horizontal: "right",
+          horizontal: "left",
         }}
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Edit</MenuItem>
-        <MenuItem onClick={handleClose}>Delete</MenuItem>
-        <MenuItem onClick={handleClose}>Add to Outfit</MenuItem>
-        <MenuItem onClick={handleClose}>Friend</MenuItem>
+        <MenuItem onClick={handleClose}>Edit Item</MenuItem>
+        <MenuItem onClick={handleClose}>Add to board</MenuItem>
+      </Menu>
+      <Menu
+        id="menu-add"
+        anchorEl={anchorEl2}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+        keepMounted
+        transformOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        open={Boolean(anchorEl2)}
+        onClose={handleClose2}
+      >
+        {sections.map((sectionName) => (
+          <MenuItem
+            key={sectionName}
+            onClick={() => {
+              handleAddButtonClick(sectionName);
+              handleClose();
+            }}
+          >
+            Add to {sectionName} section
+          </MenuItem>
+        ))}
       </Menu>
     </Card>
   );

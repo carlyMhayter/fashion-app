@@ -14,7 +14,7 @@ import { styled } from "@mui/material/styles";
 import { ACTIONS, reducer } from "../utils/reducer";
 
 export default function OutfitBoardCard(props) {
-  const { item } = props;
+  const { item, section, data, dispatch } = props;
   let shortBoolean = false;
   console.log(item.tags);
 
@@ -45,9 +45,9 @@ export default function OutfitBoardCard(props) {
     dispatch({ type: ACTIONS.CONSOLE_LOG });
   };
 
-  const handleAddButtonClick = (sectionName) => {
+  const handleDeleteButtonClick = (sectionName) => {
     dispatch({
-      type: ACTIONS.ADD_TO_SECTION,
+      type: ACTIONS.DELETE_FROM_SECTION,
       payload: { item, section: sectionName },
     });
   };
@@ -90,7 +90,13 @@ export default function OutfitBoardCard(props) {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>Edit item</MenuItem>
-        <MenuItem onClick={handleClose}>Delete from board</MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleDeleteButtonClick(section);
+          }}
+        >
+          Delete from board
+        </MenuItem>
       </Menu>
     </div>
   );

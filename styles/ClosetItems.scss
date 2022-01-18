@@ -39,7 +39,7 @@
 .hover-add-clothes{
     opacity:0%;
     width:100%;
-    height: 25%;
+    height: 100%;
     transition: .5s;
     background-color: rgba($ltGrey,.0);
     position: relative;
@@ -48,7 +48,7 @@
 .hover-add-clothes:hover{
     background-color: rgba($dkGrey,.4);
      width:100%;
-     height: 25%;
+     height: 100%;
      cursor: pointer;
      opacity:100%;
 
@@ -56,7 +56,7 @@
 
  .hover-add-clothes-icon {
 color: white;
-position: absolute;
+position: relative;
 top:50%;
 left: 50%;
 transform: translate(-50%,-50%);
