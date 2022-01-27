@@ -1,4 +1,5 @@
 import * as React from "react";
+
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 const l = ()=>letters[Math.floor(Math.random() * letters.length)]
 ;
@@ -19,4 +20,4 @@ export function useUniqueClassName(suffix, deps) {
 }
 
 export const __FramerMetadata__ = {"exports":{"useUniqueClassName":{"type":"function","annotations":{"framerContractVersion":"1"}},"randomID":{"type":"variable","annotations":{"framerContractVersion":"1"}}}}
-//# sourceMappingURL=./useUniqueClassName.map
+// # sourceMappingURL=./useUniqueClassName.map

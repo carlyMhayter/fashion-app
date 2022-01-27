@@ -42,4 +42,4 @@ export function getVariantControls(Component, variant, additionalControls = {
 }
 
 export const __FramerMetadata__ = {"exports":{"getVariantControls":{"type":"function","annotations":{"framerContractVersion":"1"}}}}
-//# sourceMappingURL=./variantUtils.map
+// # sourceMappingURL=./variantUtils.map

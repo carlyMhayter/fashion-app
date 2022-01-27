@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { ControlType } from "framer";
+
 export function useRadius(props) {
     const { borderRadius , isMixedBorderRadius , topLeftRadius , topRightRadius , bottomRightRadius , bottomLeftRadius ,  } = props;
     const radiusValue = useMemo(()=>isMixedBorderRadius ? `${topLeftRadius}px ${topRightRadius}px ${bottomRightRadius}px ${bottomLeftRadius}px` : `${borderRadius}px`
@@ -76,4 +77,4 @@ export const paddingControl = {
 };
 
 export const __FramerMetadata__ = {"exports":{"borderRadiusControl":{"type":"variable","annotations":{"framerContractVersion":"1"}},"useRadius":{"type":"function","annotations":{"framerContractVersion":"1"}},"RadiusProps":{"type":"tsType","annotations":{"framerContractVersion":"1"}},"PaddingProps":{"type":"tsType","annotations":{"framerContractVersion":"1"}},"usePadding":{"type":"function","annotations":{"framerContractVersion":"1"}},"paddingControl":{"type":"variable","annotations":{"framerContractVersion":"1"}}}}
-//# sourceMappingURL=./propUtils.map
+// # sourceMappingURL=./propUtils.map

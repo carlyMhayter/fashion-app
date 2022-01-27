@@ -3,8 +3,9 @@ import OutfitBoardButtonToolbar from "./OutfitBoardButtonToolbar";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-const sections = ["Head", "Torso", "Leg", "Foot"];
 import OutfitBoardCard from "./OutfitBoardCard";
+
+const sections = ["Head", "Torso", "Leg", "Foot"];
 
 export default function OutfitBoard(props) {
   const { data, dispatch, sections, itemsOnBoard } = props;

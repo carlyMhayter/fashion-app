@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { RenderTarget } from "framer";
+
 export function useRenderTarget() {
     const currentRenderTarget = useMemo(()=>RenderTarget.current()
     , []);
@@ -17,4 +18,4 @@ export function useIsOnCanvas() {
 }
 
 export const __FramerMetadata__ = {"exports":{"useIsInPreview":{"type":"function","annotations":{"framerContractVersion":"1"}},"useRenderTarget":{"type":"function","annotations":{"framerContractVersion":"1"}},"useIsOnCanvas":{"type":"function","annotations":{"framerContractVersion":"1"}}}}
-//# sourceMappingURL=./useRenderTarget.map
+// # sourceMappingURL=./useRenderTarget.map

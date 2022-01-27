@@ -1,25 +1,31 @@
-import React from "react";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
+import React, { useMemo } from 'react';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import CustomAutocomplete from './CustomAutocomplete';
 
 export default function SearchBarCloset(props) {
-  const { clothes, dispatch } = props;
+  const { data, dispatch } = props;
+
+  const allTags = useMemo(() => {
+    let array = data.map((item) => {
+      return item.tags;
+    });
+    return [...new Set(array.flat())];
+  }, [data]);
 
   const defaultProps = {
-    options: categories,
-    getOptionLabel: (categories) => categories,
-  };
-
-  const flatProps = {
-    options: categories.map((option) => option),
+    options: allTags,
+    getOptionLabel: (allTags) => allTags,
   };
 
   const [value, setValue] = React.useState(null);
   return (
     <div>
+      <CustomAutocomplete data={data} />
       <Autocomplete
         {...defaultProps}
         id="clear-on-escape"
+        groupBy={(option) => option.firstLetter}
         clearOnEscape
         renderInput={(params) => (
           <TextField
@@ -33,4 +39,4 @@ export default function SearchBarCloset(props) {
   );
 }
 
-const categories = ["fall", "spring", "winter", "jackets", "vintage", "skirts"];
+const categories = ['fall', 'spring', 'winter', 'jackets', 'vintage', 'skirts'];

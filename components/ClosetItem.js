@@ -62,10 +62,10 @@ export default function ClosetItem(props) {
         <div className="hover-add-clothes">
           <IconButton
             className="hover-add-clothes-icon"
-            aria-label={`Add to outfit board`}
+            aria-label="Add to outfit board"
             onClick={handleMenu2}
           >
-            <LightTooltip title={`Add to outfit board`}>
+            <LightTooltip title="Add to outfit board">
               <AddCircleIcon fontSize="medium" />
             </LightTooltip>
           </IconButton>

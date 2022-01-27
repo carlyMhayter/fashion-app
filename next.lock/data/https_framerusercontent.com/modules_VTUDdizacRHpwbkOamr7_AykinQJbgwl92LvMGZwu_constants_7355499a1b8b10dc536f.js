@@ -1,4 +1,5 @@
 import { ControlType } from "framer";
+
 export const fontStack = `"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`;
 export const containerStyles = {
     position: "relative",
@@ -278,4 +279,4 @@ export const localeOptions = {
 };
 
 export const __FramerMetadata__ = {"exports":{"fontSizeOptions":{"type":"variable","annotations":{"framerContractVersion":"1"}},"fontControls":{"type":"variable","annotations":{"framerContractVersion":"1"}},"localeOptions":{"type":"variable","annotations":{"framerContractVersion":"1"}},"fontStack":{"type":"variable","annotations":{"framerContractVersion":"1"}},"emptyStateStyle":{"type":"variable","annotations":{"framerContractVersion":"1"}},"containerStyles":{"type":"variable","annotations":{"framerContractVersion":"1"}},"defaultEvents":{"type":"variable","annotations":{"framerContractVersion":"1"}}}}
-//# sourceMappingURL=./constants.map
+// # sourceMappingURL=./constants.map

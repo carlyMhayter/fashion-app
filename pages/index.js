@@ -7,8 +7,7 @@ import Closet from "../components/Closet";
 import OutfitBoard from "../components/OutfitBoard";
 import { sections, categories, intialData } from "../utils/data";
 import { ACTIONS, reducer, itemsOnBoard } from "../utils/reducer";
-import { useReducer } from "react";
-import { useEffect } from "react";
+import { useReducer , useEffect } from "react";
 
 export default function Home() {
   const [data, dispatch] = useReducer(reducer, intialData);

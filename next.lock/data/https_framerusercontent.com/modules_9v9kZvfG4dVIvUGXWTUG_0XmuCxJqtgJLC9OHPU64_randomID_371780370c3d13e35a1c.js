@@ -1,4 +1,5 @@
 import { useConstant } from "https://framer.com/m/framer/useConstant.js@^1.0.0";
+
 const BASE62 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 /**
  * Generates a random string of BASE62 characters.
@@ -34,4 +35,4 @@ function getLocalStorage() {
 }
 
 export const __FramerMetadata__ = {"exports":{"useRandomID":{"type":"function","annotations":{"framerContractVersion":"1"}},"useCachedRandomID":{"type":"function","annotations":{"framerContractVersion":"1"}},"randomID":{"type":"function","annotations":{"framerContractVersion":"1"}}}}
-//# sourceMappingURL=./randomID.map
+// # sourceMappingURL=./randomID.map

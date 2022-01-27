@@ -24,7 +24,7 @@ export function reducer(data, action) {
       const { itemsOnBoard } = data;
       const { item, section } = action.payload;
       const newSection = [...itemsOnBoard[section]];
-      let filtered = newSection.filter((thing) => thing.id !== item.id);
+      const filtered = newSection.filter((thing) => thing.id !== item.id);
       const newItemsOnBoard = { ...itemsOnBoard, [section]: filtered };
       const newData = { ...data, itemsOnBoard: newItemsOnBoard };
       return newData;

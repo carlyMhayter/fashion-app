@@ -4,8 +4,9 @@ import { motionValue, animate, RenderTarget } from "framer";
 import { isMotionValue } from "https://framerusercontent.com/modules/3mKFSGQqKHV82uOV1eBc/5fbRLvOpxZC0JOXugvwm/isMotionValue.js";
 // @ts-ignore
 import { useConstant } from "https://framerusercontent.com/modules/ExNgrA7EJTKUPpH6vIlN/eiOrSJ2Ab5M9jPCvVwUz/useConstant.js";
+
 export function useAutoMotionValue(inputValue, options) {
-    var ref;
+    let ref;
     // Put options on a local ref
     // Might wanna just memo instead but it works for now
     const optionsRef = useRef(options);
@@ -27,14 +28,14 @@ export function useAutoMotionValue(inputValue, options) {
     // Setting value from prop change
     useEffect(()=>{
         if (!isMotionValue(inputValue) && didInitialMount.current) {
-            var ref1, ref2;
+            let ref1; let ref2;
             const newValue = transformer(inputValue);
             (ref1 = animation.current) === null || ref1 === void 0 ? void 0 : ref1.stop();
             // Call change callback
             if (onChange) onChange(newValue, value);
             // Trigger animation to new value
             if (((ref2 = optionsRef.current) === null || ref2 === void 0 ? void 0 : ref2.animate) && !isOnCanvas) {
-                var ref3;
+                let ref3;
                 // @ts-ignore
                 animation.current = animate(value, newValue, (ref3 = optionsRef.current) === null || ref3 === void 0 ? void 0 : ref3.transition);
             } else {
