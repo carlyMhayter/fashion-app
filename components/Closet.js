@@ -1,19 +1,21 @@
 import { ImageList, ImageListItem, itemData } from '@mui/material';
-import React, { Component } from 'react';
+import React from 'react';
 import ClosetItem from './ClosetItem';
 import SearchBarCloset from './SearchBarCloset';
 import Box from '@mui/material/Box';
-import { ACTIONS, reducer } from '../utils/reducer';
-import { selectedTags } from '../utils/data';
 
 export default function Closet(props) {
-  const { data, categories, dispatch } = props;
-  console.log(data);
+  const { data, categories, dispatch, selectedTags } = props;
+
   return (
     <div className="closet-container">
       My Closet
       <div>
-        <SearchBarCloset data={data} dispatch={dispatch} />
+        <SearchBarCloset
+          data={data}
+          dispatch={dispatch}
+          selectedTags={selectedTags}
+        />
       </div>
       <div>
         <Box

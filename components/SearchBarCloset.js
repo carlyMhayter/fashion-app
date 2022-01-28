@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import CustomAutocomplete from './CustomAutocomplete';
+import { ACTIONS } from '../utils/reducer';
 
 export default function SearchBarCloset(props) {
-  const { data, dispatch } = props;
+  const { data, dispatch, selectedTags } = props;
 
   const allTags = useMemo(() => {
     let array = data.map((item) => {
@@ -13,20 +13,22 @@ export default function SearchBarCloset(props) {
     return [...new Set(array.flat())];
   }, [data]);
 
-  const defaultProps = {
-    options: allTags,
-    getOptionLabel: (allTags) => allTags,
-  };
-
-  const [value, setValue] = React.useState(null);
   return (
     <div>
-      <CustomAutocomplete data={data} />
       <Autocomplete
-        {...defaultProps}
+        options={allTags}
+        multiple={true}
+        getOptionLabel={(allTags) => allTags}
         id="clear-on-escape"
-        groupBy={(option) => option.firstLetter}
         clearOnEscape
+        value={selectedTags}
+        onChange={(event, newValue) => {
+          dispatch({
+            type: ACTIONS.UPDATE_SELECTED_TAGS,
+            payload: newValue,
+          });
+          console.log('newvalue', newValue);
+        }}
         renderInput={(params) => (
           <TextField
             {...params}

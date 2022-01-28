@@ -1,13 +1,13 @@
-import Head from "next/head";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
-import Closet from "../components/Closet";
-import OutfitBoard from "../components/OutfitBoard";
-import { sections, categories, intialData } from "../utils/data";
-import { ACTIONS, reducer, itemsOnBoard } from "../utils/reducer";
-import { useReducer , useEffect } from "react";
+import Head from 'next/head';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import Closet from '../components/Closet';
+import OutfitBoard from '../components/OutfitBoard';
+import { sections, categories, intialData } from '../utils/data';
+import { ACTIONS, reducer, itemsOnBoard } from '../utils/reducer';
+import { useReducer, useEffect } from 'react';
 
 export default function Home() {
   const [data, dispatch] = useReducer(reducer, intialData);
@@ -34,6 +34,7 @@ export default function Home() {
             categories={categories}
             dispatch={dispatch}
             itemsOnBoard={data.itemsOnBoard}
+            selectedTags={data.selectedTags}
           />
         </div>
       </main>

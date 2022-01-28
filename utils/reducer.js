@@ -1,15 +1,16 @@
-import React from "react";
+import React from 'react';
 
 export const ACTIONS = {
-  CONSOLE_LOG: "console-log-test",
-  ADD_TO_SECTION: "add-to-section",
-  DELETE_FROM_SECTION: "delete-from-section",
+  CONSOLE_LOG: 'console-log-test',
+  ADD_TO_SECTION: 'add-to-section',
+  DELETE_FROM_SECTION: 'delete-from-section',
+  UPDATE_SELECTED_TAGS: 'update-selected-tags',
 };
 
 export function reducer(data, action) {
   switch (action.type) {
     case ACTIONS.CONSOLE_LOG:
-      console.log("reducer working:");
+      console.log('reducer working:');
       return clothes;
     case ACTIONS.ADD_TO_SECTION: {
       const { itemsOnBoard } = data;
@@ -27,6 +28,11 @@ export function reducer(data, action) {
       const filtered = newSection.filter((thing) => thing.id !== item.id);
       const newItemsOnBoard = { ...itemsOnBoard, [section]: filtered };
       const newData = { ...data, itemsOnBoard: newItemsOnBoard };
+      return newData;
+    }
+    case ACTIONS.UPDATE_SELECTED_TAGS: {
+      const newSelectedTags = action.payload;
+      const newData = { ...data, selectedTags: newSelectedTags };
       return newData;
     }
   }

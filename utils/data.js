@@ -51,7 +51,10 @@ const clothes = [
     src: '/clothes/IMG_1105.jpeg',
     tags: ['jacket', 'fall', 'top', 'spring', 'winter'],
   },
-  { src: '/clothes/IMG_1106.jpeg', tags: ['workout', 'top', 'yoga'] },
+  {
+    src: '/clothes/IMG_1106.jpeg',
+    tags: ['workout', 'top', 'yoga'],
+  },
   { src: '/clothes/IMG_1107.jpeg', tags: ['workout', 'top', 'yoga'] },
   { src: '/clothes/IMG_1109.jpeg', tags: ['bag', 'accessory'] },
   { src: '/clothes/IMG_1110.jpeg', tags: ['bag', 'accessory'] },
@@ -69,6 +72,7 @@ const itemsOnBoard = {
 export const intialData = {
   clothes,
   itemsOnBoard,
+  selectedTags,
 };
 
 export const sections = ['head', 'torso', 'leg', 'feet'];
