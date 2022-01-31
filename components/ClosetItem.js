@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -20,17 +20,6 @@ export default function ClosetItem(props) {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorEl2, setAnchorEl2] = useState(null);
-  let showCard = true;
-  // console.log('selected tags:', selectedTags);
-  // console.log('tags: ', item.tags);
-  if (
-    selectedTags.length > 0 &&
-    difference(selectedTags.sort, item, tags.sort) !== 0
-    // intersection(selectedTags, item.tags).length === 0
-  ) {
-    showCard = false;
-    console.log('hello');
-  }
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -67,7 +56,7 @@ export default function ClosetItem(props) {
   }));
 
   return (
-    <Card className={`card-parent ${showCard ? '' : 'not-selected'}`}>
+    <Card className={`card-parent`}>
       <CardMedia component="img" image={src} />
 
       <div className="hover-container">

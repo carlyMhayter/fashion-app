@@ -1,11 +1,35 @@
 import { ImageList, ImageListItem, itemData } from '@mui/material';
-import React from 'react';
+import React, { useMemo } from 'react';
 import ClosetItem from './ClosetItem';
 import SearchBarCloset from './SearchBarCloset';
 import Box from '@mui/material/Box';
 
 export default function Closet(props) {
   const { data, categories, dispatch, selectedTags } = props;
+  let showCard = true;
+  let selectedClothes = [];
+
+  const findSelectedItems = useMemo(() => {
+    if (selectedTags.length > 0) {
+      data.forEach((item) => {
+        const containsAllTags = [];
+        console.log('tags:', item.tags);
+        selectedTags.map((selectedTag) => {
+          item.tags.includes(selectedTag)
+            ? containsAllTags.push(true)
+            : console.log('no match');
+        });
+        containsAllTags.length === selectedTags.length
+          ? selectedClothes.push(item)
+          : console.log('not enough matches');
+        // console.log('selected tags', selectedTags);
+        // console.log('containsAllTags', containsAllTags);
+        // console.log('selectedClothes', selectedClothes);
+      });
+    } else {
+      selectedClothes = data;
+    }
+  }, [selectedTags]);
 
   return (
     <div className="closet-container">
@@ -30,7 +54,7 @@ export default function Closet(props) {
           }}
         >
           <ImageList variant="masonry" cols={4} gap={8}>
-            {data.map((cloth) => (
+            {selectedClothes.map((cloth) => (
               <ImageListItem key={cloth.id}>
                 <ClosetItem
                   data={data}
