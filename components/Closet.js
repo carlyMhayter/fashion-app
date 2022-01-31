@@ -32,7 +32,12 @@ export default function Closet(props) {
           <ImageList variant="masonry" cols={4} gap={8}>
             {data.map((cloth) => (
               <ImageListItem key={cloth.id}>
-                <ClosetItem data={data} dispatch={dispatch} item={cloth} />
+                <ClosetItem
+                  data={data}
+                  dispatch={dispatch}
+                  item={cloth}
+                  selectedTags={selectedTags}
+                />
               </ImageListItem>
             ))}
           </ImageList>
