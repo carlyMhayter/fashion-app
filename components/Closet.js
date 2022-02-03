@@ -1,5 +1,5 @@
 import { ImageList, ImageListItem, itemData } from '@mui/material';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import ClosetItem from './ClosetItem';
 import SearchBarCloset from './SearchBarCloset';
 import Box from '@mui/material/Box';
@@ -7,9 +7,10 @@ import Box from '@mui/material/Box';
 export default function Closet(props) {
   const { data, categories, dispatch, selectedTags } = props;
   let showCard = true;
-  let selectedClothes = [];
 
-  const findSelectedItems = useMemo(() => {
+  const selectedClothes = useMemo(() => {
+    let newSelections = [];
+
     if (selectedTags.length > 0) {
       data.forEach((item) => {
         const containsAllTags = [];
@@ -20,15 +21,16 @@ export default function Closet(props) {
             : console.log('no match');
         });
         containsAllTags.length === selectedTags.length
-          ? selectedClothes.push(item)
+          ? newSelections.push(item)
           : console.log('not enough matches');
-        // console.log('selected tags', selectedTags);
-        // console.log('containsAllTags', containsAllTags);
-        // console.log('selectedClothes', selectedClothes);
+        console.log('selected tags', selectedTags);
+        console.log('containsAllTags', containsAllTags);
+        console.log('selectedClothes', newSelections);
       });
     } else {
-      selectedClothes = data;
+      newSelections = data;
     }
+    return newSelections;
   }, [selectedTags]);
 
   return (

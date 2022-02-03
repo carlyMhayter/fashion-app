@@ -3,13 +3,14 @@
 .closet-container {
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 500px;
     height: 100%;
     padding: 0px 10px;
-    border: 2px coral solid;
+    // border: 2px coral solid;
+    margin-left: 20px;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1020px) {
     .closet-container {background-color: red;
         display: none;
 }}
